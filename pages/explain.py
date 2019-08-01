@@ -19,10 +19,11 @@ column1 = dbc.Col(
 
             I will be doing a side by side comparison of the original model on the full data set, and the trimmed data set.
 
-
+            
+            <img src="/assets/feature_importances_full.png" alt="featurefull" width="200"/>
             """
         ),
-        html.Img(src='assets/feature_importances_full.jpg', className='img-fluid'),
+
     ],
     md=12,
 
