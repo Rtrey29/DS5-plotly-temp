@@ -69,6 +69,16 @@ column1 = dbc.Col(
         value = 1,
         className='mb-5',
         ),
+        dcc.Markdown('#### Year built'),
+        dcc.Slider(
+        id = 'yr_built',
+        min =1900,
+        max =2014,
+        step=10,
+        value=2000,
+        marks={n: str(n) for n in range(1900, 2014, 10)},
+        className='mb-5',
+        ),
 
     ],
     md=4,
@@ -121,15 +131,23 @@ column3 = dbc.Col(
     [
         html.H2('Price of home', className='mb-5'),
         html.Div(id='prediction-content', className='lead'),
-    ]
+
+    ],
 )
 import pandas as pd
-
 @app.callback(
     Output('prediction-content', 'children'),
-    [Input('year', 'value'), Input('continent', 'value')],
+    [
+    Input('bedrooms', 'value'),
+    Input('bathrooms', 'value'),
+    Input('sqft_living','value'),
+    Input('floors','value'),
+    Input('waterfront','value'),
+    Input('condition','value'),
+    Input('yr_built','value'),
+    ],
 )
-def predict(beds,baths,sqft,floor, water, cond, grade, yr):
+def predict(beds,baths,sqft,floor, water, cond, yr):
     df = pd.DataFrame(
         columns=['bedrooms', 'bathrooms','sqft_living','floors', 'waterfront', 'condition', 'grade', 'yr_built'],
         data=[[ beds, baths, sqft, floor, water, cond, 7, yr]]
