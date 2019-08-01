@@ -12,6 +12,13 @@ gunicorn = "*"
 plotly = "*"
 jupyter = "*"
 pandas = "*"
+scikit-learn = "*"
+category-encoders = "*"
+pandas-profiling = "*"
+xgboost = "*"
+warnings = "*"
+eli5 = "*"
+joblib = "*"
 
 [requires]
 python_version = "3.7"
