@@ -19,6 +19,7 @@ xgboost = "*"
 warnings = "*"
 eli5 = "*"
 joblib = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"

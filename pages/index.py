@@ -31,7 +31,18 @@ column1 = dbc.Col(
 
             ## Predict the price of a 🏠 in King County WA
 
-            This tool will help you to determine the price of a home, so you can better determine the size of house that is within your price range.
+            Are you in the market for a new home?
+
+            Are you trying to what size house will fall within your budget?
+
+            Are you tired of looking at hundreds of pages on Zillow.com at houses that are outside of your price range?
+
+            With this price predictor you can quickly and easily enter a few simple options to get back an estimated home price instantly!
+
+
+
+
+            *(disclaimer: This is a student data science project on outdated information)*
 
 
 
@@ -42,9 +53,6 @@ column1 = dbc.Col(
     md=4,
 )
 
-gapminder = px.data.gapminder()
-fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
 
 column2 = dbc.Col(html.Img(src='assets/prices.jpg', className='img-fluid'))
 

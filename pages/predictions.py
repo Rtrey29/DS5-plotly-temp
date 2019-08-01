@@ -75,10 +75,11 @@ column1 = dbc.Col(
         min =1900,
         max =2014,
         step=10,
-        value=2000,
+        value=1950,
         marks={n: str(n) for n in range(1900, 2014, 10)},
         className='mb-5',
         ),
+        dcc.Markdown('Note* This interactive predictor is a simplified version of my model. The full version uses more features as demonstrated on the Process page '),
 
     ],
     md=4,
@@ -93,14 +94,14 @@ column2 = dbc.Col(
         dcc.RadioItems(
         id= 'condition',
         options=[
-            {'label': '1', 'value': 1},
-            {'label': '2', 'value': 2},
-            {'label': '3', 'value': 3},
-            {'label': '4', 'value': 4},
-            {'label': '5', 'value': 5},
+            {'label': ' 1  .', 'value': 5},
+            {'label': ' 2  .', 'value': 4},
+            {'label': ' 3  .', 'value': 3},
+            {'label': ' 4  .', 'value': 2},
+            {'label': ' 5 ', 'value': 1},
         ],
         value = 3,
-        className='mb-5',
+        className='mb-5' 'mr-5' 'ml-5',
         ),
         dcc.Markdown('#### Floors'),
         dcc.Dropdown(
@@ -108,7 +109,6 @@ column2 = dbc.Col(
         options = [
             {'label':'1', 'value':1},
             {'label':'2', 'value':2},
-            {'label':'3', 'value':3},
         ],
         value=1,
         className='mb-5',
@@ -135,6 +135,7 @@ column3 = dbc.Col(
     ],
 )
 import pandas as pd
+import numpy as np
 @app.callback(
     Output('prediction-content', 'children'),
     [
@@ -153,8 +154,8 @@ def predict(beds,baths,sqft,floor, water, cond, yr):
         data=[[ beds, baths, sqft, floor, water, cond, 7, yr]]
     )
     y_pred_log=pipeline.predict(df)[0]
-    y_pred = np.expm1(y_pred_log)
+    y_pred = round(np.expm1(y_pred_log),0)
 
-    return y_pred
+    return f'${y_pred:.0f}'
 
 layout = dbc.Row([column1, column2, column3])
