@@ -79,7 +79,7 @@ column1 = dbc.Col(
         marks={n: str(n) for n in range(1900, 2014, 10)},
         className='mb-5',
         ),
-        dcc.Markdown('Note* This interactive predictor is a simplified version of my model. The full version uses more features as demonstrated on the Process page '),
+        dcc.Markdown('Note* This interactive predictor is a simplified version of my model. The full version uses more features as demonstrated on the Explain page '),
 
     ],
     md=4,

@@ -33,11 +33,13 @@ column1 = dbc.Col(
 
             Are you in the market for a new home?
 
-            Are you trying to what size house will fall within your budget?
+            Are you trying to determine what size house will fall within your budget?
+
+            Will you be able to afford the house of your dreams? The one that overlooks the water?
 
             Are you tired of looking at hundreds of pages on Zillow.com at houses that are outside of your price range?
 
-            With this price predictor you can quickly and easily enter a few simple options to get back an estimated home price instantly!
+            With this price predictor you can quickly and easily enter a few simple options and recieve an estimated home price instantly!
 
 
 
