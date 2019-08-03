@@ -86,7 +86,7 @@ column1 = dbc.Col(
             html.Img(src='/assets/variance_score_trim.png', style={'width':'25%'}),
             dcc.Markdown(
                 """
-            I think it is important to point out these pretty pronounced discrepancies, not to excuse the poor performance of my model, but to illustrate the difficulties that we encounter when attempting to deliver a smaller and more digestible representation of our data to less-technical minded people. Trying to find that balance between overly technical and overly simplistic could almost be the more challenging aspect for us in the workforce. 
+            I think it is important to point out these pretty pronounced discrepancies, not to excuse the poor performance of my model, but to illustrate the difficulties that we encounter when attempting to deliver a smaller and more digestible representation of our data to less-technical minded people. Trying to find that balance between overly technical and overly simplistic could almost be the more challenging aspect for us in the workforce.
 
 
                 """, className='mt-5'),
