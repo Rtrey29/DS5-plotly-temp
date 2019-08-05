@@ -20,7 +20,7 @@ column1 = dbc.Col(
 
             """,className='mb-5',
         ),
-        dcc.Markdown('#### Living space in sqft'),
+        dcc.Markdown('#### Square footage'),
         dcc.Slider(
         id = 'sqft_living',
         min =300,
@@ -30,7 +30,7 @@ column1 = dbc.Col(
         marks={n: str(n) for n in range(500, 7000, 1000)},
         className='mb-5',
         ),
-        dcc.Markdown('#### Number of Bedrooms'),
+        dcc.Markdown('#### Bedrooms'),
         dcc.Dropdown(
         id='bedrooms',
         options = [
@@ -49,7 +49,7 @@ column1 = dbc.Col(
         value = 1,
         className='mb-5',
         ),
-        dcc.Markdown('#### Number of Bathrooms'),
+        dcc.Markdown('#### Bathrooms'),
         dcc.Dropdown(
         id='bathrooms',
         options = [
@@ -69,16 +69,7 @@ column1 = dbc.Col(
         value = 1,
         className='mb-5',
         ),
-        dcc.Markdown('#### Year built'),
-        dcc.Slider(
-        id = 'yr_built',
-        min =1900,
-        max =2014,
-        step=10,
-        value=1950,
-        marks={n: str(n) for n in range(1900, 2014, 10)},
-        className='mb-5',
-        ),
+
         dcc.Markdown('Note* This interactive predictor is a simplified version of my model. The full version uses more features as demonstrated on the Explain page '),
 
     ],
@@ -89,21 +80,17 @@ column2 = dbc.Col(
     [
 
 
-        dcc.Markdown('#### Condition'),
-        dcc.Markdown('An index from 1-5 on the condition of the property 1=poor/5=excellent'),
-        dcc.RadioItems(
-        id= 'condition',
-        options=[
-            {'label': ' 1', 'value': 5},
-            {'label': ' 2', 'value': 4},
-            {'label': ' 3', 'value': 3},
-            {'label': ' 4', 'value': 2},
-            {'label': ' 5', 'value': 1},
-        ],
-        value = 3,
-        className='mb-5' 'mr-5' 'ml-5',
-        labelStyle={'margin-right': '20px'}
+        dcc.Markdown('#### Year built'),
+        dcc.Slider(
+        id = 'yr_built',
+        min =1900,
+        max =2014,
+        step=10,
+        value=1950,
+        marks={n: str(n) for n in range(1900, 2014, 25)},
+        className='mb-5'
         ),
+
         dcc.Markdown('#### Floors'),
         dcc.Dropdown(
         id='floors',
@@ -114,7 +101,7 @@ column2 = dbc.Col(
         value=1,
         className='mb-5',
         ),
-        dcc.Markdown('#### Waterfront Property'),
+        dcc.Markdown('#### Waterfront'),
         dcc.Dropdown(
         id = 'waterfront',
         options=[
@@ -145,14 +132,13 @@ import numpy as np
     Input('sqft_living','value'),
     Input('floors','value'),
     Input('waterfront','value'),
-    Input('condition','value'),
     Input('yr_built','value'),
     ],
 )
-def predict(beds,baths,sqft,floor, water, cond, yr):
+def predict(beds,baths,sqft,floor, water, yr):
     df = pd.DataFrame(
         columns=['bedrooms', 'bathrooms','sqft_living','floors', 'waterfront', 'condition', 'grade', 'yr_built'],
-        data=[[ beds, baths, sqft, floor, water, cond, 7, yr]]
+        data=[[ beds, baths, sqft, floor, water, 3, 7, yr]]
     )
     y_pred_log=pipeline.predict(df)[0]
     y_pred = round(np.expm1(y_pred_log),0)

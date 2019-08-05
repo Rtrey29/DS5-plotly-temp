@@ -37,14 +37,13 @@ column1 = dbc.Col(
 
             Will you be able to afford the house of your dreams? The one that overlooks the water?
 
-            Are you tired of looking at hundreds of pages on Zillow.com at houses that are outside of your price range?
 
             With this price predictor you can quickly and easily enter a few simple options and recieve an estimated home price instantly!
 
 
 
 
-            *(disclaimer: This is a student data science project on outdated information)*
+
 
 
 

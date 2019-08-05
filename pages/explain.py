@@ -28,8 +28,14 @@ column1 = dbc.Col(
 
 
             """),
-            html.Img(src='/assets/feature_importances_full1.png', style={'width':'50%'}),
-            html.Img(src='/assets/feature_importances_trim1.png', style={'width':'50%'}, className='pl-1'),
+        html.Img(src='/assets/feature_importances_full1.png', style={'width':'45%'}),
+
+            html.Img(src='/assets/feature_importances_trim1.png', style={'width':'45%'}, className='pl-1'),
+            dcc.Markdown(
+                    """
+                    Feature importances on the full data set in red.   Importances on the simplified set in blue
+
+                """,style={'textAlign': 'center'}),
             dcc.Markdown(
                 """
 
@@ -46,6 +52,11 @@ column1 = dbc.Col(
             html.Img(src='/assets/permuter_full.png', style={'width':'30%'}, className='mt-3'),
             html.Img(src='/assets/permuter_trim.png', style={'width':'45%'}, className='ml-4'),
             dcc.Markdown(
+                    """
+                    Permutation importnce of full set on the left, simplified set on the right.
+
+                """,style={'textAlign': 'center'}),
+            dcc.Markdown(
                 """
 
 
@@ -59,7 +70,7 @@ column1 = dbc.Col(
 
 
                 """, className='mt-5''mb-4'),
-            html.Img(src='/assets/RMSLE_full.png', style={'width':'45%'}, className='mb-5'),
+            html.Img(src='/assets/RMSLE_full.png', style={'width':'30%'}, className='mb-5'),
 
             dcc.Markdown(
                 """
@@ -68,7 +79,7 @@ column1 = dbc.Col(
 
                 """),
 
-            html.Img(src='/assets/RMSLE_trim.png', style={'width':'45%'}),
+            html.Img(src='/assets/RMSLE_trim.png', style={'width':'30%'}),
             dcc.Markdown(
                 """
             #### And the accuracy scores (closer to 1.0 is better)
@@ -76,20 +87,23 @@ column1 = dbc.Col(
 
 
                 """, className='mt-5'),
-            html.Img(src='/assets/variance_score_full.png', style={'width':'80%'}),
+            html.Img(src='/assets/variance_score_full.png', style={'width':'55%'}),
             dcc.Markdown(
                 """
             #### Smaller dataframe:
 
 
                 """, className='mt-5'),
-            html.Img(src='/assets/variance_score_trim.png', style={'width':'25%'}),
+            html.Img(src='/assets/variance_score_trim.png', style={'width':'20%'}),
             dcc.Markdown(
                 """
-            I think it is important to point out these pretty pronounced discrepancies, not to excuse the poor performance of my model, but to illustrate the difficulties that we encounter when attempting to deliver a smaller and more digestible representation of our data to less-technical minded people. Trying to find that balance between overly technical and overly simplistic could almost be the more challenging aspect for us in the workforce.
+            I think it is important to point out these pronounced discrepancies, to illustrate the difficulties that can be encountered when attempting to deliver a smaller more digestible representation of data to less-technical minded people. Trying to find that balance between overly technical and overly simplistic could almost be the more challenging aspect for us in the workforce.
+
+            In the future I would like to implement a web scraper so that I would be able to update this app with more current information.  As well as figuring out a way to incorporate the geo location elements in the original data set to make an interactive map.
 
 
-                """, className='mt-5'),
+            """, className='mt-5'),
+
 
 
 
